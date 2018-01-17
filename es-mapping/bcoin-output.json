@@ -1,0 +1,32 @@
+{
+	"mappings" : {
+		"output":{
+		  "properties":{
+			"type":{
+				"type":"keyword"
+			},
+			"blockhash":{
+				"type":"keyword"
+			},
+			"blockheight":{
+				"type":"keyword"
+			},
+            "date":{
+				"type":"date"
+			 },
+            "hash":{
+				"type":"keyword"
+            },
+            "value":{
+				"type":"long"
+            },
+            "script":{
+				"type":"keyword"
+            },
+            "address":{
+				"type":"keyword"
+            }
+          }
+        }
+    }
+}

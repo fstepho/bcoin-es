@@ -1,0 +1,91 @@
+version: '2'
+
+services:
+  bcoin:
+    build: .
+    container_name: bcoin
+    restart: unless-stopped
+    ports:
+      #-- Mainnet
+      - "8333:8333"
+      - "8332:8332" # RPC
+      #-- Testnet
+      #- "18333:18333"
+      #- "18332:18332" # RPC
+    environment:
+      BCOIN_CONFIG: /data/bcoin.conf
+      VIRTUAL_HOST: bcoin.yourdomain.org
+      VIRTUAL_PORT: 8332 # Mainnet
+      #VIRTUAL_PORT: 18332 # Testnest
+    networks:
+      - "bcoin"
+      - "nginx-proxy"
+    volumes:
+      - data:/data
+      - ./secrets/bcoin.conf:/data/bcoin.conf
+      - ./app:/code/app
+    mem_limit: 4g
+    memswap_limit: 4g
+
+#  nginx_proxy:
+#    image: jwilder/nginx-proxy
+#    container_name: nginx
+#    restart: unless-stopped
+#    ports:
+#      - "80:81"
+#      - "443:443"
+#    networks:
+#      - "nginx-proxy"
+#    volumes:
+#      - ./secrets/certs:/etc/nginx/certs:ro
+#      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+    container_name: elasticsearch
+    hostname: elasticsearch
+    environment:
+      - cluster.name=bitcoin-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms4g -Xmx4g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 6g
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ports:
+      - 9200:9200
+    networks:
+      - bcoin
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.0.0
+    container_name: kibana
+    hostname: kibana
+    ports:
+      - 5601:5601
+    networks:
+      - bcoin
+
+  head:
+    image: mobz/elasticsearch-head:5
+    container_name: head
+    ports:
+      - 9100:9100
+    networks:
+      - bcoin
+
+networks:
+  bcoin:
+    external:
+      name: "bcoin"
+  nginx-proxy:
+    external:
+      name: "nginx-proxy"
+
+volumes:
+  data:
+  esdata:

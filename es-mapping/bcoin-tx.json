@@ -1,0 +1,47 @@
+{
+	"mappings" : {
+		"tx":{
+		  "properties":{
+			"type":{
+				"type":"keyword"
+			},
+			"blockhash":{
+				"type":"keyword"
+			},
+			"blockheight":{
+				"type":"keyword"
+			},
+            "date":{
+				"type":"date"
+			 },
+            "hash":{
+				"type":"keyword"
+            },
+            "witnessHash":{
+				"type":"keyword"
+            },
+            "fee":{
+				"type":"long"
+            },
+            "rate":{
+				"type":"long"
+            },
+            "mtime":{
+				"type":"long"
+            },
+            "index":{
+				"type":"keyword"
+            },
+            "version":{
+				"type":"keyword"
+            },
+            "locktime":{
+				"type":"long"
+            },
+            "hex":{
+				"type":"keyword"
+            }
+          }
+        }
+    }
+}

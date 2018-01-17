@@ -1,0 +1,119 @@
+{
+	"mappings" : {
+		"tx":{
+		  "properties":{
+			"type":{
+				"type":"keyword"
+			},
+            "date":{
+				"type":"date"
+			 },
+            "hash":{
+				"type":"keyword"
+            },
+            "witnessHash":{
+				"type":"keyword"
+            },
+            "fee":{
+				"type":"long"
+            },
+            "rate":{
+				"type":"long"
+            },
+            "mtime":{
+				"type":"long"
+            },
+            "index":{
+				"type":"keyword"
+            },
+            "version":{
+				"type":"keyword"
+            },
+            "locktime":{
+				"type":"long"
+            },
+            "hex":{
+				"type":"keyword"
+            }
+          }
+        }
+    }
+}
+
+{
+	"mappings" : {
+		"input":{
+		  "properties":{
+			"type":{
+				"type":"keyword"
+			},
+            "date":{
+				"type":"date"
+			 },
+            "hash":{
+				"type":"keyword"
+            },
+            "prevout_hash":{
+				"type":"keyword"
+            },
+            "prevout_index":{
+				"type":"keyword"
+            },
+            "script":{
+				"type":"keyword"
+            },
+            "witness":{
+				"type":"keyword"
+            },
+            "sequence":{
+				"type":"keyword"
+            },
+            "utxo_version":{
+				"type":"keyword"
+            },
+            "utxo_height":{
+				"type":"keyword"
+            },
+            "utxo_value":{
+				"type":"long"
+            },
+            "utxo_script":{
+				"type":"keyword"
+            },
+            "utxo_address":{
+				"type":"keyword"
+            },
+            "utxo_coinbase":{
+				"type":"boolean"
+            }
+          }
+        }
+    }
+}
+
+{
+	"mappings" : {
+		"output":{
+		  "properties":{
+			"type":{
+				"type":"keyword"
+			},
+            "date":{
+				"type":"date"
+			 },
+            "hash":{
+				"type":"keyword"
+            },
+            "value":{
+				"type":"long"
+            },
+            "script":{
+				"type":"keyword"
+            },
+            "address":{
+				"type":"keyword"
+            }
+          }
+        }
+    }
+}

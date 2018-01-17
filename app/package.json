@@ -1,0 +1,16 @@
+{
+  "name": "bcoin-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Node",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcoin": "^1.0.0-beta.15",
+    "elasticsearch": "^14.0.0"
+  }
+}
