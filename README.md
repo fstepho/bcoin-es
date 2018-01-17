@@ -14,6 +14,7 @@ Copy sample configuration to `secrets/bcoin.conf`:
 $ mkdir -p secrets
 $ cp bcoin.example.conf secrets/bcoin.conf
 ```
+Change api-key in secrets/bcoin.conf
 
 Quick run, node only:
 ```
