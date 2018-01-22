@@ -26,6 +26,8 @@ Connect to Bcoin container
 $ docker-compose exec bcoin bash
 ```
 
+Set max_map_count value (Linux) in Elasticsearch container
+$ sudo sysctl -w vm.max_map_count=262144
 
 Index transaction data to Elasticsearch
 ```
