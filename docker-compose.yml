@@ -19,26 +19,10 @@ services:
       #VIRTUAL_PORT: 18332 # Testnest
     networks:
       - "bcoin"
-      - "nginx-proxy"
     volumes:
       - data:/data
       - ./secrets/bcoin.conf:/data/bcoin.conf
       - ./app:/code/app
-    mem_limit: 1g
-    memswap_limit: 1g
-
-#  nginx_proxy:
-#    image: jwilder/nginx-proxy
-#    container_name: nginx
-#    restart: unless-stopped
-#    ports:
-#      - "80:81"
-#      - "443:443"
-#    networks:
-#      - "nginx-proxy"
-#    volumes:
-#      - ./secrets/certs:/etc/nginx/certs:ro
-#      - /var/run/docker.sock:/tmp/docker.sock:ro
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.0.0
@@ -83,9 +67,6 @@ networks:
   bcoin:
     external:
       name: "bcoin"
-  nginx-proxy:
-    external:
-      name: "nginx-proxy"
 
 volumes:
   data:
