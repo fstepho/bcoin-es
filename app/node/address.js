@@ -2,7 +2,7 @@ secp256k1 = require("bcoin/lib/crypto/secp256k1")
 crypto = require("bcoin/lib/crypto")
 base58 = require("bcoin/lib/utils/base58")
 
-pivkeyarg = process.argv[1]
+pivkeyarg = process.argv[2]
 console.log("Private key argument : " + pivkeyarg);
 
 // 0 - Having a private ECDSA key
