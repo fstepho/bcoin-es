@@ -7,9 +7,6 @@ var async = require("async");
 var body = [];
 
 exports.indexItem = async function (item, forceIndex) {
-    
-  
-
     //console.log("Adding " + item.hash + " for bulk indexing")
     // INDEXATION VOUT
     item.outputs.forEach(function (vout) {
@@ -78,8 +75,7 @@ exports.indexItem = async function (item, forceIndex) {
     // action description
     body.push({ index:  { _index: 'bcoin-tx', _type: 'tx'} });
     body.push(toIndex);
-        
-    
+
     if (body.length>100000 || forceIndex){
         var esClient = new elasticsearch.Client({
             host: 'elasticsearch:9200',
@@ -102,9 +98,6 @@ exports.indexItem = async function (item, forceIndex) {
         
         body = [];
     }
-
     //console.log("Calling queue callback");
-    
     //callback();
-    
 }
