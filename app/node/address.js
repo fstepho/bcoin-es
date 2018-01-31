@@ -3,7 +3,7 @@ crypto = require("bcoin/lib/crypto")
 base58 = require("bcoin/lib/utils/base58")
 
 // 0 - Having a private ECDSA key
-privkey = buffer.Buffer.from("18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725", "hex")
+privkey = new Buffer("18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725", "hex")
 
 // 1 - Take the corresponding public key generated with it (65 bytes, 1 byte 0x04, 32 bytes corresponding to X coordinate, 32 bytes corresponding to Y coordinate)
 pubkey = secp256k1.publicKeyCreate(privkey, false)
