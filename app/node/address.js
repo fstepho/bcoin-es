@@ -5,15 +5,15 @@ base58 = require("bcoin/lib/utils/base58")
 pivkeyarg = process.argv[2]
 console.log("Private key argument : " + pivkeyarg);
 
+privkeyHash = crypto.sha256(pivkeyarg)
+
 // 0 - Having a private ECDSA key
-privkey = new Buffer(pivkeyarg, "hex")
+privkey = new Buffer(privkeyHash, "hex")
 
-
-privkeyHash = crypto.sha256(privkey)
 
 
 // 1 - Take the corresponding public key generated with it (65 bytes, 1 byte 0x04, 32 bytes corresponding to X coordinate, 32 bytes corresponding to Y coordinate)
-pubkey = secp256k1.publicKeyCreate(privkeyHash, false)
+pubkey = secp256k1.publicKeyCreate(privkey, false)
 
 // 2 - Perform SHA-256 hashing on the public key
 step2 = crypto.sha256(pubkey)
