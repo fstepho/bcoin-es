@@ -96,6 +96,4 @@ http.cors.allow-headers : X-Requested-With,X-Auth-Token,Content-Type,Content-Len
 
 xpack.security.enabled: false
 
-bootstrap.memory_lock: true
-
 xpack.license.self_generated.type : basic
