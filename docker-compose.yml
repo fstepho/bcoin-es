@@ -31,7 +31,7 @@ services:
     environment:
       - cluster.name=bitcoin-cluster
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1400m -Xmx1400m"
+      - "ES_JAVA_OPTS=-Xms9g -Xmx9g"
     ulimits:
       memlock:
         soft: -1
