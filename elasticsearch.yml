@@ -20,7 +20,7 @@ cluster.name: btc-cluster
 #
 # Use a descriptive name for the node:
 #
-node.name: es-btc-node-1
+node.name: es-node-1
 #
 # Add custom attributes to the node:
 #
@@ -52,7 +52,7 @@ bootstrap.memory_lock: true
 #
 # Set the bind address to a specific IP (IPv4 or IPv6):
 #
-network.host: es-btc-node-1
+network.host: es-node-1
 #
 # Set a custom port for HTTP:
 #
