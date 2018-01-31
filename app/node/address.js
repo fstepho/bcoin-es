@@ -3,9 +3,11 @@ crypto = require("bcoin/lib/crypto")
 base58 = require("bcoin/lib/utils/base58")
 
 pivkeyarg = process.argv[0]
+console.log("Private key argument : " + pivkeyarg);
 
 // 0 - Having a private ECDSA key
 privkey = new Buffer(pivkeyarg, "hex")
+
 
 // 1 - Take the corresponding public key generated with it (65 bytes, 1 byte 0x04, 32 bytes corresponding to X coordinate, 32 bytes corresponding to Y coordinate)
 pubkey = secp256k1.publicKeyCreate(privkey, false)
@@ -34,4 +36,4 @@ step8 = Buffer.concat([step4, step7])
 // 9 - Convert the result from a byte string into a base58 string using Base58Check encoding. This is the most commonly used Bitcoin Address format
 addr = base58.encode(step8)
 
-console.log("addr");
+console.log("Address : " + addr);
