@@ -15,7 +15,7 @@ step2 = crypto.sha256(pubkey)
 step3 = crypto.ripemd160(step2)
 
 // 4 - Add version byte in front of RIPEMD-160 hash (0x00 for Main Network)
-step4 = Buffer.concat([buffer.Buffer.alloc(1), step3])
+step4 = Buffer.concat([Buffer.alloc(1), step3])
 
 // 5 - Perform SHA-256 hash on the extended RIPEMD-160 result
 step5 = crypto.sha256(step4)
